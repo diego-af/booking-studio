@@ -32,8 +32,6 @@ const RegisterComponent = () => {
 	});
 
 	const onSubmit = async (data: any) => {
-		console.log(data);
-
 		setLoading(true);
 
 		try {
@@ -42,8 +40,6 @@ const RegisterComponent = () => {
 				email: data.email,
 				password: data.password
 			});
-
-			console.log(user);
 
 			if (!user) {
 				toast.info('Não foi possivel criar a conta', {

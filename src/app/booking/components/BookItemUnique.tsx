@@ -18,7 +18,7 @@ interface IBookingsProps {
 }
 export default function BoookingItemUnique({bookings}: IBookingsProps) {
 	const router = useRouter();
-	const {user, setUsers} = useContext(BookingContext);
+	const {user, setUsers, logged} = useContext(BookingContext);
 
 	useEffect(() => {
 		const user = localStorage.getItem('user');
@@ -32,7 +32,7 @@ export default function BoookingItemUnique({bookings}: IBookingsProps) {
 		const userData = JSON.parse(user);
 
 		setUsers(userData);
-	}, []);
+	}, [logged]);
 
 	const handleFormatNumber = (number: number) => {
 		const formatter = new Intl.NumberFormat('en-BR', {
