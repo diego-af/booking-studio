@@ -70,7 +70,7 @@ const RegisterComponent = () => {
 		<Card>
 			<CardContent className='p-2'>
 				<h2 className='font-bold text-gray-300 text-md text-center mb-2 uppercase'>
-					Stúdio Sales Login
+					Stúdio Sales Cadastro
 				</h2>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
@@ -124,7 +124,7 @@ const RegisterComponent = () => {
 						{loading && (
 							<Loader2 className='mr-2 h-4 w-4 animate-spin bg-white' />
 						)}
-						Entrar
+						Cadastrar
 					</Button>
 				</form>
 			</CardContent>
