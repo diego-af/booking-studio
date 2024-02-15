@@ -104,8 +104,6 @@ export default function BookItem({service, hoursTime}: any) {
 				);
 			});
 
-			console.log('booking', booking);
-
 			if (!booking) {
 				return true;
 			}
@@ -115,11 +113,11 @@ export default function BookItem({service, hoursTime}: any) {
 	}, [dateSelected, hoursTime]);
 
 	return (
-		<div className='w-full flex flex-col gap-4'>
-			<div className='mt-8'>
+		<div className='w-full max-w-2xl flex flex-col gap-4'>
+			<div className='mt-8 w-full'>
 				<Calendar
 					mode='single'
-					className='w-full bg-[#141518] rounded-lg p-2'
+					className='w-full  flex-1 bg-[#141518] rounded-lg p-2'
 					selected={dateSelected}
 					onSelect={handleDateClick}
 					locale={ptBR}

@@ -8,10 +8,11 @@ import Link from 'next/link';
 import {schema} from '../schema/schema';
 import {createUSer} from '@/app/_actions/createUser';
 import {Loader2} from 'lucide-react';
-import {useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {useToast} from '@/components/ui/use-toast';
 import {useRouter} from 'next/navigation';
 import {toast} from 'sonner';
+import {BookingContext, IUser} from '@/app/Context/provider';
 
 type FormData = {
 	username: string;
@@ -21,6 +22,7 @@ type FormData = {
 
 const RegisterComponent = () => {
 	const [loading, setLoading] = useState(false);
+	const {setUsers} = useContext(BookingContext);
 
 	const router = useRouter();
 	const {
@@ -61,16 +63,25 @@ const RegisterComponent = () => {
 			setLoading(false);
 		}
 	};
+	useEffect(() => {
+		const user = localStorage.getItem('user');
+		if (user) {
+			router.push('/');
+			setUsers(JSON.parse(user));
+			return;
+		}
+		setUsers({} as IUser);
+	}, []);
 
 	return (
 		<Card>
-			<CardContent className='p-2'>
+			<CardContent className='p-2 flex justify-center items-center flex-col'>
 				<h2 className='font-bold text-gray-300 text-md text-center mb-2 uppercase'>
 					Stúdio Sales Cadastro
 				</h2>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
-					className='w-full bg-[#26272B] flex justify-center flex-col gap-3 p-3'
+					className='w-full max-w-lg bg-[#26272B] flex justify-center flex-col gap-3 p-3'
 				>
 					<div className='w-full flex flex-col gap-2 '>
 						<label className='text-gray-300'>Nome</label>

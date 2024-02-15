@@ -20,7 +20,7 @@ export default async function Booking({params}: BarbershopDetailsPageProps) {
 		<main className='bg-black flex  min-h-screen flex-col p-4 '>
 			<Header />
 
-			<div className='w-full flex flex-col gap-3 '>
+			<div className='w-full flex flex-col gap-3 md:justify-center md:items-center '>
 				<BookItem
 					service={service}
 					hoursTime={hoursTime.map((item) => item.date)}

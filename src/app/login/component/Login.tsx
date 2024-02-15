@@ -7,12 +7,12 @@ import {Input} from '@/components/ui/input';
 import {zodResolver} from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
-import {useContext, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {schema} from '../schema/schema';
 import {loginUser} from '@/app/_actions/loginUser';
 import {toast} from 'sonner';
-import {BookingContext} from '@/app/Context/provider';
+import {BookingContext, IUser} from '@/app/Context/provider';
 import {Loader2Icon} from 'lucide-react';
 
 type FormData = {
@@ -65,15 +65,25 @@ const LoginComponent = () => {
 		}
 	};
 
+	useEffect(() => {
+		const user = localStorage.getItem('user');
+		if (user) {
+			router.push('/');
+			setUsers(JSON.parse(user));
+			return;
+		}
+		setUsers({} as IUser);
+	}, []);
+
 	return (
 		<Card>
-			<CardContent className='p-2'>
+			<CardContent className='p-2 flex justify-center items-center flex-col'>
 				<h2 className='font-bold text-gray-300 text-md text-center mb-2 uppercase'>
 					Stúdio Sales Login
 				</h2>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
-					className='w-full bg-[#26272B] flex justify-center flex-col gap-4 p-3'
+					className='w-full max-w-lg bg-[#26272B] flex justify-center flex-col gap-4 p-3'
 				>
 					<div className='w-full flex flex-col gap-2 '>
 						<label className='text-gray-300'>Email</label>

@@ -53,10 +53,10 @@ export default function BoookingItemUnique({bookings}: IBookingsProps) {
 		);
 	}
 	return (
-		<div className='w-full flex flex-col gap-3 mt-6'>
+		<div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'>
 			{bookingFiltered.map((booking: any) => (
 				<Card key={booking.id}>
-					<CardContent className='w-full flex  items-center  bg-[#1A1B1F] p-4 border border-solid border-gray-500 rounded-xl'>
+					<CardContent className='w-full flex  items-center   bg-[#1A1B1F] p-4 border border-solid border-gray-500 rounded-xl'>
 						<div className='w-full flex justify-between  gap-3 items-center '>
 							<div className='flex flex-col  gap-2'>
 								<span className='text-md font-bold text-gray-300'>

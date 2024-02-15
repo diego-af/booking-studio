@@ -41,7 +41,7 @@ export default function ServicesItems({services}: any) {
 		setUsers(userData);
 	}, []);
 	return (
-		<Card className='w-full flex flex-col   p-2 bg-foreground mt-2 border border-gray-800'>
+		<Card className='w-full flex flex-col p-2 bg-foreground mt-2 border border-gray-800'>
 			<CardContent className='p-0 flex gap-4'>
 				<div className='relative min-h-[110px] min-w-[110px] max-h-[110px] max-w-[110px] rounded-sm '>
 					<Image
