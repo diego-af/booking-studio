@@ -19,7 +19,7 @@ import {
 	UserIcon
 } from 'lucide-react';
 import Link from 'next/link';
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import {BookingContext, IUser} from '../Context/provider';
 import {useRouter} from 'next/navigation';
 
@@ -44,6 +44,9 @@ export default function Header() {
 		router.push('/login');
 	};
 
+	useEffect(() => {
+		
+	}, [logged]);
 	return (
 		<Card className=''>
 			<CardContent className='w-full flex justify-between items-center p-0'>

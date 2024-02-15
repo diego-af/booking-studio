@@ -15,7 +15,7 @@ import {useRouter} from 'next/navigation';
 import {generateDayTimeList} from '@/app/_helpers/hours';
 
 export default function BookItem({service, hoursTime}: any) {
-	const {user, setUsers} = useContext(BookingContext);
+	const {user, setUsers, logged} = useContext(BookingContext);
 	const [dateSelected, setDateSelected] = useState<Date | undefined>(undefined);
 	const [hour, setHour] = useState<string | undefined>();
 	const [saveLoading, setSaveLoading] = useState(false);
@@ -81,7 +81,7 @@ export default function BookItem({service, hoursTime}: any) {
 		const userData = JSON.parse(user);
 
 		setUsers(userData);
-	}, []);
+	}, [logged]);
 
 	const timeList = useMemo(() => {
 		if (!dateSelected) {
