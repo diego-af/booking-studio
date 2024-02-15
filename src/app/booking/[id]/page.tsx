@@ -14,7 +14,6 @@ export default async function Booking({params}: BarbershopDetailsPageProps) {
 	const service = await db.service.findUnique({where: {id: params.id}});
 	const hoursTime = await db.booking.findMany();
 
-	console.log(hoursTime);
 
 	return (
 		<main className='bg-black flex  min-h-screen flex-col p-4 '>
